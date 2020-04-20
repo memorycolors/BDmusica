@@ -5,7 +5,8 @@
     <class>es.javiergarciarosado.musica.sql.Genero</class>
     <class>es.javiergarciarosado.musica.sql.Musica</class>
     <class>com.mycompany.musica.newpackage.Genero</class>
-    <class>com.mycompany.musica.newpackage.Musica_1</class>
+    <class>com.mycompany.musica.newpackage.Album</class>
+    <class>com.mycompany.musica.newpackage.Cancion</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby:BDmusica;create=true"/>
       <property name="javax.persistence.jdbc.user" value="APP"/>

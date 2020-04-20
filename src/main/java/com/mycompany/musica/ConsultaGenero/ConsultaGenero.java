@@ -38,6 +38,7 @@ public class ConsultaGenero {
         });
 
         //MODIFICACION DE OBJETO
+        //POP
         Query queryGeneroPop = em.createNamedQuery("Genero.findByNombre");
         queryGeneroPop.setParameter("nombre", "POP");
         List<Genero> listGeneroPop = queryGeneroPop.getResultList();
@@ -82,16 +83,16 @@ public class ConsultaGenero {
             em.merge(generoRock);
         });
 
-        
+       
 
         //ELIMINAR OBJETOS 
         
-        Genero generoId2 = em.find(Genero.class, 2);
-        if (generoId2 != null) {
-            em.remove(generoId2);
-        } else {
-            System.out.println("No hay ningun genero con ID=2");
-        }
+//        Genero generoId2 = em.find(Genero.class, 2);
+//        if (generoId2 != null) {
+//            em.remove(generoId2);
+//        } else {
+//            System.out.println("No hay ningun genero con ID=2");
+//        }
         
         em.getTransaction().commit();
         

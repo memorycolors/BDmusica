@@ -24,13 +24,13 @@ import javax.persistence.Table;
  * @author Javi
  */
 @Entity
-@Table(name = "GENERO")
+@Table(name = "ALBUM")
 @NamedQueries({
-    @NamedQuery(name = "Genero.findAll", query = "SELECT g FROM Genero g"),
-    @NamedQuery(name = "Genero.findById", query = "SELECT g FROM Genero g WHERE g.id = :id"),
-    @NamedQuery(name = "Genero.findByCodigo", query = "SELECT g FROM Genero g WHERE g.codigo = :codigo"),
-    @NamedQuery(name = "Genero.findByNombre", query = "SELECT g FROM Genero g WHERE g.nombre = :nombre")})
-public class Genero implements Serializable {
+    @NamedQuery(name = "Album.findAll", query = "SELECT a FROM Album a"),
+    @NamedQuery(name = "Album.findById", query = "SELECT a FROM Album a WHERE a.id = :id"),
+    @NamedQuery(name = "Album.findByNumeroCanciones", query = "SELECT a FROM Album a WHERE a.numeroCanciones = :numeroCanciones"),
+    @NamedQuery(name = "Album.findByNombre", query = "SELECT a FROM Album a WHERE a.nombre = :nombre")})
+public class Album implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -38,22 +38,22 @@ public class Genero implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID")
     private Integer id;
-    @Column(name = "CODIGO")
-    private String codigo;
+    @Column(name = "NUMERO_CANCIONES")
+    private Short numeroCanciones;
     @Basic(optional = false)
     @Column(name = "NOMBRE")
     private String nombre;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "genero")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "album")
     private Collection<Cancion> cancionCollection;
 
-    public Genero() {
+    public Album() {
     }
 
-    public Genero(Integer id) {
+    public Album(Integer id) {
         this.id = id;
     }
 
-    public Genero(Integer id, String nombre) {
+    public Album(Integer id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
@@ -66,12 +66,12 @@ public class Genero implements Serializable {
         this.id = id;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public Short getNumeroCanciones() {
+        return numeroCanciones;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setNumeroCanciones(Short numeroCanciones) {
+        this.numeroCanciones = numeroCanciones;
     }
 
     public String getNombre() {
@@ -100,10 +100,10 @@ public class Genero implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Genero)) {
+        if (!(object instanceof Album)) {
             return false;
         }
-        Genero other = (Genero) object;
+        Album other = (Album) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -112,7 +112,7 @@ public class Genero implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.musica.newpackage.Genero[ id=" + id + " ]";
+        return "com.mycompany.musica.newpackage.Album[ id=" + id + " ]";
     }
     
 }

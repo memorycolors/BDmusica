@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Fri Apr 17 19:22:53 CEST 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0171-892a-27bf-0000067f0400 
+Mon Apr 20 18:14:12 CEST 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0171-985e-5954-000006761ff0 
 on database directory C:\Users\Javi\Documents\NetBeansProjects\musica\BDmusica with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44 
 Loaded from file:/C:/Users/Javi/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
@@ -12,5 +12,5 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Fri Apr 17 19:22:54 CEST 2020:
-Shutting down instance a816c00e-0171-892a-27bf-0000067f0400 on database directory C:\Users\Javi\Documents\NetBeansProjects\musica\BDmusica with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44 
+Mon Apr 20 18:14:13 CEST 2020:
+Shutting down instance a816c00e-0171-985e-5954-000006761ff0 on database directory C:\Users\Javi\Documents\NetBeansProjects\musica\BDmusica with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44 

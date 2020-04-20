@@ -27,17 +27,17 @@ import javax.persistence.TemporalType;
  * @author Javi
  */
 @Entity
-@Table(name = "MUSICA")
+@Table(name = "CANCION")
 @NamedQueries({
-    @NamedQuery(name = "Musica_1.findAll", query = "SELECT m FROM Musica_1 m"),
-    @NamedQuery(name = "Musica_1.findById", query = "SELECT m FROM Musica_1 m WHERE m.id = :id"),
-    @NamedQuery(name = "Musica_1.findByAlbum", query = "SELECT m FROM Musica_1 m WHERE m.album = :album"),
-    @NamedQuery(name = "Musica_1.findByCantante", query = "SELECT m FROM Musica_1 m WHERE m.cantante = :cantante"),
-    @NamedQuery(name = "Musica_1.findByFechaLanzamiento", query = "SELECT m FROM Musica_1 m WHERE m.fechaLanzamiento = :fechaLanzamiento"),
-    @NamedQuery(name = "Musica_1.findByPrecio", query = "SELECT m FROM Musica_1 m WHERE m.precio = :precio"),
-    @NamedQuery(name = "Musica_1.findByFavorito", query = "SELECT m FROM Musica_1 m WHERE m.favorito = :favorito"),
-    @NamedQuery(name = "Musica_1.findByFoto", query = "SELECT m FROM Musica_1 m WHERE m.foto = :foto")})
-public class Musica_1 implements Serializable {
+    @NamedQuery(name = "Cancion.findAll", query = "SELECT c FROM Cancion c"),
+    @NamedQuery(name = "Cancion.findById", query = "SELECT c FROM Cancion c WHERE c.id = :id"),
+    @NamedQuery(name = "Cancion.findByTitulo", query = "SELECT c FROM Cancion c WHERE c.titulo = :titulo"),
+    @NamedQuery(name = "Cancion.findByCantante", query = "SELECT c FROM Cancion c WHERE c.cantante = :cantante"),
+    @NamedQuery(name = "Cancion.findByFechaLanzamiento", query = "SELECT c FROM Cancion c WHERE c.fechaLanzamiento = :fechaLanzamiento"),
+    @NamedQuery(name = "Cancion.findByPrecio", query = "SELECT c FROM Cancion c WHERE c.precio = :precio"),
+    @NamedQuery(name = "Cancion.findByFavorito", query = "SELECT c FROM Cancion c WHERE c.favorito = :favorito"),
+    @NamedQuery(name = "Cancion.findByFoto", query = "SELECT c FROM Cancion c WHERE c.foto = :foto")})
+public class Cancion implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -45,9 +45,8 @@ public class Musica_1 implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "ALBUM")
-    private String album;
+    @Column(name = "TITULO")
+    private String titulo;
     @Column(name = "CANTANTE")
     private String cantante;
     @Column(name = "FECHA_LANZAMIENTO")
@@ -60,20 +59,18 @@ public class Musica_1 implements Serializable {
     private Boolean favorito;
     @Column(name = "FOTO")
     private String foto;
+    @JoinColumn(name = "ALBUM", referencedColumnName = "ID")
+    @ManyToOne(optional = false)
+    private Album album;
     @JoinColumn(name = "GENERO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Genero genero;
 
-    public Musica_1() {
+    public Cancion() {
     }
 
-    public Musica_1(Integer id) {
+    public Cancion(Integer id) {
         this.id = id;
-    }
-
-    public Musica_1(Integer id, String album) {
-        this.id = id;
-        this.album = album;
     }
 
     public Integer getId() {
@@ -84,12 +81,12 @@ public class Musica_1 implements Serializable {
         this.id = id;
     }
 
-    public String getAlbum() {
-        return album;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setAlbum(String album) {
-        this.album = album;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getCantante() {
@@ -132,6 +129,14 @@ public class Musica_1 implements Serializable {
         this.foto = foto;
     }
 
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
+
     public Genero getGenero() {
         return genero;
     }
@@ -150,10 +155,10 @@ public class Musica_1 implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Musica_1)) {
+        if (!(object instanceof Cancion)) {
             return false;
         }
-        Musica_1 other = (Musica_1) object;
+        Cancion other = (Cancion) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -162,7 +167,7 @@ public class Musica_1 implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.musica.newpackage.Musica_1[ id=" + id + " ]";
+        return "com.mycompany.musica.newpackage.Cancion[ id=" + id + " ]";
     }
     
 }
